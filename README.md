@@ -1,2 +1,2 @@
 # shopping-list
-awesome shopping list exercise
+awesome shopping list exercise 2
