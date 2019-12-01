@@ -1,4 +1,3 @@
-#shopping-list > .col {
+#shopping-list > ul {
   max-width: 30rem;
-  border: 1px solid red;
 }
