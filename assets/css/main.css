@@ -8,3 +8,7 @@ svg {
   fill: #fff;
   margin-right: 0.5rem;
 }
+
+#shopping-list ul.myclass li {
+  color: red;
+}

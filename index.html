@@ -21,11 +21,20 @@
     </symbol>
   </svg>
   <header>
-    <h1 class="text-center">Awesome Shopping List</h1>
+    <h1 class="text-center mb-5">Awesome Shopping List <span class="mood">😢</span></h1>
   </header>
   <main class="row justify-content-center flex-grow-1">
     <form id="shopping-list" class="col">
-      <ul class="list-group mb-3"></ul>
+      <p class="empty text-center">Awwww! this list is very sad 😢. Try adding some items 😉.</p>
+      <ul class="list-group d-none mb-3"></ul>
+      <div id="item-form" class="form-row mb-4">
+        <div class="col">
+          <input type="text" name="name" class="form-control" placeholder="Item Name">
+        </div>
+        <div class="col">
+          <input type="text" name="quantity" class="form-control" placeholder="Quantity">
+        </div>
+      </div>
       <div class="button-group text-right">
         <!--svg><use xlink:href="#icon-plus" aria-hidden="true"></svg-->
         <button type="button" class="d-inline-flex align-items-center btn btn-primary">
