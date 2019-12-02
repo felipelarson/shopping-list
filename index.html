@@ -10,23 +10,36 @@
 </head>
 <body class="container-fluid d-flex flex-column min-vh-100">
   <svg class="d-none">
-    <!-- svg sprite aqui -->
+    <symbol id="icon-new" viewBox="0 0 512 512">
+      <path d="M416 277H277v139h-42V277H96v-42h139V96h42v139h139v42z" />
+    </symbol>
+    <symbol id="icon-cancel" viewBox="0 0 512 512">
+      <path d="M405 137l-30-30-119 119-119-119-30 30 119 119-119 119 30 30 119-119 119 119 30-30-119-119z" />
+    </symbol>
+    <symbol id="icon-add" viewBox="0 0 512 512">
+      <path d="M186 340l-90-91-32 31 122 122 262-261-32-31z" /></svg>
+    </symbol>
   </svg>
   <header>
     <h1 class="text-center">Awesome Shopping List</h1>
   </header>
   <main class="row justify-content-center flex-grow-1">
     <form id="shopping-list" class="col">
-      <ul class="list-group mb-3">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-      <div class="d-flex justify-content-end">
+      <ul class="list-group mb-3"></ul>
+      <div class="button-group text-right">
         <!--svg><use xlink:href="#icon-plus" aria-hidden="true"></svg-->
-        <button type="button" class="btn btn-primary">New Item</button>
+        <button type="button" class="d-inline-flex align-items-center btn btn-primary">
+          <svg aria-hidden="true"><use xlink:href="#icon-new"></use></svg>
+          New Item
+        </button>
+        <button type="button" class="d-none align-items-center btn btn-secondary">
+          <svg aria-hidden="true"><use xlink:href="#icon-cancel"></use></svg>
+          Cancel
+        </button>
+        <button type="button" class="d-none align-items-center btn btn-success">
+          <svg aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
+          Add Item
+        </button>
       </div>
     </form>
   </main>
