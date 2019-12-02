@@ -2,15 +2,17 @@
   
     var list = [],
         mood = document.querySelector('.mood'),
+        empty = document.querySelector('.empty')
         form = document.getElementById('shopping-list'),
-        ul = form.querySelector('ul');
+        ul = form.querySelector('ul'),
+        itemForm = document.getElementById('item-form'),
+        newItemButton = document.getElementById('button-new'),
+        addItemButton = document.getElementById('button-add'),
+        cancelItemButton = document.getElementById('button-cancel');
   
     function addItem(name, quantity) {
   
-      list.push({
-        name: name,
-        quantity: quantity,
-      });
+      list.push({name: name, quantity: quantity,});
   
       var id = 'list-item-' + list.length,
           item = [
@@ -36,6 +38,14 @@
     function updateItem() {
   
     }
+
+    function newItem(event) {
+        console.log(event);
+        itemForm.classList.remove('d-none');
+        addItemButton.classList.replace('d-none', 'd-inline-flex');
+        newItemButton.classList.replace('d-inline-flex', 'd-none');
+        cancelItemButton.classList.replace('d-none', 'd-inline-flex');
+    }
   
     function checkListMood() {
   
@@ -46,15 +56,15 @@
     }
   
     function loadList() {
-  
+        
     }
   
-    function initList() {
-      if (!list.length) { }
-    }
+    empty.classList.toggle('d-none', list.length);
+    newItemButton.addEventListener('click', newItem)
   
     window.AWESOME_SHOPPING_LIST = {
       addItem: addItem,
+      newItem: newItem
     };
   
   })();
