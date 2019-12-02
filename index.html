@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>🤘 Awesome Shopping List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-    <svg id="javascript" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M208 88.001h-80v212.498c0 52.58-18.032 67.261-49.412 67.261-14.705 0-27.948-2.521-38.25-6.063L32 423.904C46.7 428.966 69.259 432 86.907 432 158.955 432 208 398.129 208 301.02V88.001zM382.463 80C305.02 80 256 123.998 256 182.154c0 50.083 37.751 81.44 92.641 101.665 39.7 14.158 55.392 26.808 55.392 47.539 0 22.756-18.139 37.425-52.448 37.425-31.863 0-60.789-10.64-80.394-21.255v-.021L256 410.727c18.639 10.638 53.441 21.255 91.167 21.255C437.854 431.98 480 383.43 480 326.284c0-48.55-26.958-79.9-85.278-102.163-43.139-17.191-61.27-26.795-61.27-48.542 0-17.2 15.688-32.869 48.043-32.869 31.846 0 53.744 10.707 66.505 17.291l19.125-64C447.125 87.22 420.188 80 382.463 80z"/></svg>
-<header>
-    <h1 class="text-center">Shopping List</h1>
-</header>
-<main>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <ul class="list-group" id="shopping-list">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                    <li class="list-group-item d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary">Primary</button>
-                        <svg>
-                            <use href="#javascript"></use>
-                        </svg>
-                    </li>
-                  </ul>
-            </div>
+<body class="container-fluid d-flex flex-column min-vh-100">
+  <svg class="d-none">
+    <symbol id="icon-new" viewBox="0 0 512 512">
+      <path d="M416 277H277v139h-42V277H96v-42h139V96h42v139h139v42z" />
+    </symbol>
+    <symbol id="icon-cancel" viewBox="0 0 512 512">
+      <path d="M405 137l-30-30-119 119-119-119-30 30 119 119-119 119 30 30 119-119 119 119 30-30-119-119z" />
+    </symbol>
+    <symbol id="icon-add" viewBox="0 0 512 512">
+      <path d="M186 340l-90-91-32 31 122 122 262-261-32-31z" /></svg>
+    </symbol>
+  </svg>
+  <header>
+    <h1 class="text-center mb-5">Awesome Shopping List <span class="mood">😢</span></h1>
+  </header>
+  <main class="row justify-content-center flex-grow-1">
+    <form id="shopping-list" class="col">
+      <p class="empty text-center">Awwww! this list is very sad 😢. Try adding some items 😉.</p>
+      <ul class="list-group d-none mb-3"></ul>
+      <div id="item-form" class="form-row mb-4">
+        <div class="col">
+          <input type="text" name="name" class="form-control" placeholder="Item Name">
         </div>
-    </div>
-</main>
-<footer></footer>
-<script src="assets/js/main.js"></script>
+        <div class="col">
+          <input type="text" name="quantity" class="form-control" placeholder="Quantity">
+        </div>
+      </div>
+      <div class="button-group text-right">
+        <!--svg><use xlink:href="#icon-plus" aria-hidden="true"></svg-->
+        <button type="button" class="d-inline-flex align-items-center btn btn-primary">
+          <svg aria-hidden="true"><use xlink:href="#icon-new"></use></svg>
+          New Item
+        </button>
+        <button type="button" class="d-none align-items-center btn btn-secondary">
+          <svg aria-hidden="true"><use xlink:href="#icon-cancel"></use></svg>
+          Cancel
+        </button>
+        <button type="button" class="d-none align-items-center btn btn-success">
+          <svg aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
+          Add Item
+        </button>
+      </div>
+    </form>
+  </main>
+  <footer class="text-center">
+    Made with 💖 @ <a href="https://www.etic.pt/" target="_blank" rel="noreferrer">etic_</a>
+  </footer>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

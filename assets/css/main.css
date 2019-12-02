@@ -1,0 +1,10 @@
+#shopping-list {
+    max-width: 40rem;
+  }
+
+button svg {
+  width: 1rem;
+  height: 1rem;
+  fill: #fff;
+  margin-right: 0.5em;
+}
