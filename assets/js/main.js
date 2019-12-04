@@ -1,70 +1,83 @@
 (function() {
-  
-    var list = [],
-        mood = document.querySelector('.mood'),
-        empty = document.querySelector('.empty')
-        form = document.getElementById('shopping-list'),
-        ul = form.querySelector('ul'),
-        itemForm = document.getElementById('item-form'),
-        newItemButton = document.getElementById('button-new'),
-        addItemButton = document.getElementById('button-add'),
-        cancelItemButton = document.getElementById('button-cancel');
-  
-    function addItem(name, quantity) {
-  
-      list.push({name: name, quantity: quantity,});
-  
-      var id = 'list-item-' + list.length,
-          item = [
-            '<li class="list-group-item d-flex justify-content-between">',
-              '<div class="form-check">',
-                '<input class="form-check-input" type="checkbox" id="' + id + '">',
-                '<label class="form-check-label" for="' + id + '">',
-                  name,
-                '</label>',
-              '</div>',
-              '<span class="quantity">' + quantity + '</span>',
-            '</li>',
-          ].join('');
-  
-      ul.classList.toggle('d-none', !list.length);
-      ul.innerHTML += item;
-    }
-  
-    function removeItem() {
-  
-    }
-  
-    function updateItem() {
-  
-    }
 
-    function newItem(event) {
-        console.log(event);
-        itemForm.classList.remove('d-none');
-        addItemButton.classList.replace('d-none', 'd-inline-flex');
-        newItemButton.classList.replace('d-inline-flex', 'd-none');
-        cancelItemButton.classList.replace('d-none', 'd-inline-flex');
-    }
-  
-    function checkListMood() {
-  
-    }
-  
-    function saveList() {
-  
-    }
-  
-    function loadList() {
-        
-    }
-  
-    empty.classList.toggle('d-none', list.length);
-    newItemButton.addEventListener('click', newItem)
-  
-    window.AWESOME_SHOPPING_LIST = {
-      addItem: addItem,
-      newItem: newItem
+  function qs(sel, ctx) {
+    ctx = ctx || document;
+    return ctx.querySelector(sel);
+  }
+
+  function toArray(obj) {
+    return [].slice.call(obj);
+  }
+
+  // Variaveis
+  var list = [],
+      ul = qs('#shopping-list'),
+      form = qs('#shopping-list-form'),
+      emptyMessage = qs('#empty-message');
+
+  function renderItem(item) {
+    return [
+      '<li class="list-group-item d-flex align-items-center gutters">',
+        '<input type="checkbox" aria-label="done"' + (item.done ? ' checked' : '') + '>',
+        '<input type="text" class="form-control" placeholder="Name" value="' + item.name + '">',
+        '<input type="text" class="form-control w-25" placeholder="Quantity" value="' + item.quantity + '">',
+        '<button type="button" class="btn btn-outline-danger"><svg><use xlink:href="#icon-remove"></use></svg></button>',
+      '</li>'
+    ].join('');
+  }
+
+  function saveList() {
+
+  }
+
+  function checkListStatus() {
+    emptyMessage.classList.toggle('d-none', list.length);
+  }
+
+  function addItem(item) {
+    list.push(item);
+    ul.innerHTML += renderItem(item);
+    checkListStatus();
+    saveList();
+  }
+
+  function removeItem(index) {
+    var li = elm.parentNode;
+    var lis = toArray(ul.children);
+    console.log(lis.indexOf(li))
+  }
+
+  function editItem(index) {
+
+  }
+
+  form.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    var elements = toArray(evt.target.elements),
+        item = {done: false,};
+
+    elements.forEach(function(element) {
+      if (element.type !== 'submit') {
+      item[element.name] = element.type === 'checkbox' ? element.checked : element.value;
+      }
+    });
+
+    addItem(item);
+    form.reset();
+  });
+
+
+  ul.addEventListener('click', function (evt) {
+    console.log(evt.target);
+    if(evt.target && evt.target.matches('btn-outline-danger')){
+      console.log('removeItem')
     };
-  
-  })();
+  });
+
+  checkListStatus();
+
+  window.awesomeShoppingList = {
+    addItem: addItem
+  };
+
+})();
