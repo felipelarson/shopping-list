@@ -1,14 +1,22 @@
-#shopping-list {
-  max-width: 40rem;
+.gutters > *:not(:last-child) {
+  margin-right: 1rem;
 }
 
-svg {
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn svg {
   width: 1rem;
   height: 1rem;
-  fill: #fff;
+}
+
+.btn svg:not(:only-child) {
   margin-right: 0.5rem;
 }
 
-#shopping-list ul.myclass li {
-  color: red;
+.shopping-list {
+  max-width: 40rem;
 }

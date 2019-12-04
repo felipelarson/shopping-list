@@ -1,60 +1,65 @@
 (function() {
-  
-  var list = [],
-      mood = document.querySelector('.mood'),
-      form = document.getElementById('shopping-list'),
-      ul = form.querySelector('ul');
 
-  function addItem(name, quantity) {
-
-    list.push({
-      name: name,
-      quantity: quantity,
-    });
-
-    var id = 'list-item-' + list.length,
-        item = [
-          '<li class="list-group-item d-flex justify-content-between">',
-            '<div class="form-check">',
-              '<input class="form-check-input" type="checkbox" id="' + id + '">',
-              '<label class="form-check-label" for="' + id + '">',
-                name,
-              '</label>',
-            '</div>',
-            '<span class="quantity">' + quantity + '</span>',
-          '</li>',
-        ].join('');
-
-    ul.classList.toggle('d-none', !list.length);
-    ul.innerHTML += item;
+  function qs(sel, ctx) {
+    ctx = ctx || document;
+    return ctx.querySelector(sel);
   }
 
-  function removeItem() {
-
+  function toArray(obj) {
+    return [].slice.call(obj);
   }
 
-  function updateItem() {
+  var list = [];
+      ul = qs('#shopping-list'),
+      form = qs('#shopping-list-form'),
+      emptyMessage = qs('#empty-message');
 
-  }
-
-  function checkListMood() {
-
+  function renderItem(name, quantity, done) {
+    return [
+      '<li class="list-group-item d-flex align-items-center gutters">',
+        '<input type="checkbox" aria-label="done"' + (done ? ' checked' : '') + '>',
+        '<input type="text" class="form-control" placeholder="Name" value="' + name + '">',
+        '<input type="text" class="form-control w-25" placeholder="Quantity" value="' + quantity + '">',
+        '<button type="button" class="btn btn-outline-danger"><svg><use xlink:href="#icon-remove"></use></svg></button>',
+      '</li>'
+    ].join('');
   }
 
   function saveList() {
 
   }
 
-  function loadList() {
+  function addItem(name, quantity, done) {
+    list.push({name: name, quantity: quantity, done: done});
+    ul.innerHTML += renderItem(name, quantity, done);
+    emptyMessage.classList.toggle('d-none', list.length);
+    saveList();
+  }
+
+  function removeItem(index) {
 
   }
 
-  function initList() {
-    if (!list.length) { }
+  function editItem(index) {
+
   }
 
-  window.AWESOME_SHOPPING_LIST = {
-    addItem: addItem,
+  form.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    var elements = toArray(evt.target.elements);
+    var obj = {};
+
+    elements.forEach(function(element) {
+      obj[element.name] = element.type === 'checkbox' ? element.checked : element.value;
+    });
+
+    addItem(obj.name, obj.quantity, obj.done);
+
+    form.reset();
+  });
+
+  window.awesomeShoppingList = {
+    addItem: addItem
   };
 
 })();
