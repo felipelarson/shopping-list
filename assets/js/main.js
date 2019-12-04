@@ -9,10 +9,12 @@
     return [].slice.call(obj);
   }
 
-  var list = [];
+  var list = [],
       ul = qs('#shopping-list'),
       form = qs('#shopping-list-form'),
       emptyMessage = qs('#empty-message');
+
+  console.log(emptyMessage)
 
   function renderItem(name, quantity, done) {
     return [
@@ -29,10 +31,14 @@
 
   }
 
+  function checkListStatus() {
+    emptyMessage.classList.toggle('d-none', list.length);
+  }
+
   function addItem(name, quantity, done) {
     list.push({name: name, quantity: quantity, done: done});
     ul.innerHTML += renderItem(name, quantity, done);
-    emptyMessage.classList.toggle('d-none', list.length);
+    checkListStatus();
     saveList();
   }
 
@@ -57,6 +63,8 @@
 
     form.reset();
   });
+
+  checkListStatus();
 
   window.awesomeShoppingList = {
     addItem: addItem

@@ -24,13 +24,12 @@
   </header>
   <main class="row justify-content-center flex-grow-1">
     <div class="col shopping-list">
-      <ul id="shopping-list" class="list-group mb-3">
-        <li id="empty-message" class="list-group-item text-center">
-          This list has no items. Terrible. Sad.<br>
-          We'll be adding items, some beautiful items...<br>
-          ...and we're going to Make this List Great Again!
-        </li>
-      </ul>
+      <div id="empty-message" class="list-group-item text-center d-none">
+        This list has no items. Terrible. Sad.<br>
+        We'll be adding items, some beautiful items...<br>
+        ...and we're going to Make this List Great Again!
+      </div>
+      <ul id="shopping-list" class="list-group mb-3"></ul>
       <form id="shopping-list-form" class="d-flex align-items-center gutters">
         <input name="done" type="checkbox" aria-label="done">
         <input name="name" type="text" class="form-control" placeholder="Name" required>
