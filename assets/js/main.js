@@ -41,10 +41,14 @@
     saveList();
   }
 
-  function removeItem(index) {
+  function removeItem(elm) {
     var li = elm.parentNode;
     var lis = toArray(ul.children);
-    console.log(lis.indexOf(li))
+    var index = lis.indexOf(li);
+
+    list.splice(index, 1);
+    ul.removeChild(li);
+    checkListStatus();
   }
 
   function editItem(index) {
@@ -75,6 +79,7 @@
   });
 
   checkListStatus();
+  removeItem();
 
   window.awesomeShoppingList = {
     addItem: addItem
