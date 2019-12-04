@@ -14,8 +14,6 @@
       form = qs('#shopping-list-form'),
       emptyMessage = qs('#empty-message');
 
-  console.log(emptyMessage)
-
   function renderItem(name, quantity, done) {
     return [
       '<li class="list-group-item d-flex align-items-center gutters">',
