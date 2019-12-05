@@ -202,7 +202,7 @@
   }).join('');
 
 
-  /* EXPORT (optional) */
+  /* EXPORT (opcional) */
 
   /* disponibiliza os métodos da closure para o scope global */
   window.awesomeShoppingList = {
