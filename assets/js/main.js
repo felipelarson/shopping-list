@@ -65,9 +65,9 @@
           '<input type="number" name="quantity" class="form-control" placeholder="Quantity" value="' + item.quantity + '">',
           '<div class="input-group-append">',
             '<select class="custom-select" name="unit">',
-              (units.map(function(unit) {
+              units.map(function(unit) {
                 return '<option value="' + unit + '"' + (unit === item.unit ? 'selected' : '') + '>' + (unit || 'units') + '</option>';
-              })).join(''),
+              }).join(''),
             '</select>',
           '</div>',
         '</div>',
