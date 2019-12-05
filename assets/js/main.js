@@ -60,8 +60,8 @@
     return [
       '<li class="list-group-item d-flex align-items-center">',
         '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked="checked"' : '') + '>',
-        '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '">',
-        '<input type="number" name="quantity" class="form-control w-auto pr-0" placeholder="Quantity" value="' + item.quantity + '">',
+        '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '" required>',
+        '<input type="number" name="quantity" class="form-control w-auto pr-0" placeholder="Quantity" value="' + item.quantity + '" min="0" required>',
         '<select class="custom-select w-auto pl-0" name="unit">',
           units.map(function(unit) {
             return '<option value="' + unit + '"' + (unit === item.unit ? 'selected' : '') + '>' + (unit || 'units') + '</option>';
