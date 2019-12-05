@@ -47,6 +47,7 @@
   var list = loadData('shoppingList') || [], // tenta carregar os dados do localStorage, caso contário inicializa a lista como um array vazio
       ul = qs('#shopping-list'), // selecciona a UL que vai conter os items
       form = qs('#shopping-list-form'), // selecciona o formulário de novo item
+      units = ['', 'kg', 'l', 'm'],
       emptyMessage = qs('#empty-message'), // selecciona o elemento que contém a mensagem de lista vazia
       moodText = qs('.mood-text'), // selecciona o elemento que contém a palavra da emoção
       moodEmoji = qs('.mood-emoji'); // selecciona o elemento que contém o emoji da emoção
@@ -60,7 +61,16 @@
       '<li class="list-group-item d-flex align-items-center gutters">',
         '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked="checked"' : '') + '>',
         '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '">',
-        '<input type="text" name="quantity" class="form-control w-25" placeholder="Quantity" value="' + item.quantity + '">',
+        '<div class="input-group w-50">',
+          '<input type="number" name="quantity" class="form-control" placeholder="Quantity" value="' + item.quantity + '">',
+          '<div class="input-group-append">',
+            '<select class="custom-select" name="unit">',
+              (units.map(function(unit) {
+                return '<option value="' + unit + '"' + (unit === item.unit ? 'selected' : '') + '>' + (unit || 'units') + '</option>';
+              })).join(''),
+            '</select>',
+          '</div>',
+        '</div>',
         '<button type="button" class="btn btn-outline-danger" data-action="remove"><svg><use xlink:href="#icon-remove"></use></svg></button>',
       '</li>'
     ].join('');

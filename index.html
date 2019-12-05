@@ -32,7 +32,17 @@
       <ul id="shopping-list" class="list-group mb-3"></ul>
       <form id="shopping-list-form" class="d-flex align-items-center gutters">
         <input name="name" type="text" class="form-control" placeholder="Name" required>
-        <input name="quantity" type="text" class="form-control w-25" placeholder="Quantity" required>
+        <div class="input-group w-50">
+          <input name="quantity" type="number" class="form-control" placeholder="Qty" required>
+          <div class="input-group-append">
+            <select class="custom-select" name="unit">
+              <option value="" selected>units</option>
+              <option value="kg">kg</option>
+              <option value="l">l</option>
+              <option value="l">m</option>
+            </select>
+          </div>
+        </div>
         <button name="submit" id="button-add" type="submit" class="btn btn-success text-nowrap">
           <svg aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
           <span>Add Item</span>

@@ -14,7 +14,12 @@
   margin-right: 0.5rem;
 }
 
-.gutters>*:not(:last-child) {
+.input-group-append .custom-select {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.gutters > *:not(:last-child) {
   margin-right: 1rem;
 }
 
@@ -22,6 +27,12 @@
   max-width: 40rem;
 }
 
-.shopping-list ul input[type="text"]:not(:focus) {
+.shopping-list ul input[type="text"]:not(:focus),
+.shopping-list ul input[type="number"]:not(:focus),
+.shopping-list ul select:not(:focus) {
   border: 0;
+}
+
+input[name="quantity"] {
+  text-align: right;
 }
