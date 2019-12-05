@@ -56,9 +56,22 @@
   }
 
   function updateListStatus() {
-    emptyMessage.classList.toggle('d-none', list.length);
-    moodText.innerHTML = list.length ? 'Awesome' : 'Sad';
-    moodEmoji.innerHTML = list.length ? '😎' : '😢';
+    var length = list.length;
+    emptyMessage.classList.toggle('d-none', length);
+    switch (true) {
+      case !length:
+        moodText.innerHTML = 'Sad';
+        moodEmoji.innerHTML = '😢';
+        break;
+      case length >= 5:
+        moodText.innerHTML = 'Awesome';
+        moodEmoji.innerHTML = '😎';
+        break;
+      default:
+        moodText.innerHTML = 'Happy';
+        moodEmoji.innerHTML = '😀';
+        break;
+    }
   }
 
   function addItem(item) {
