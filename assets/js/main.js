@@ -120,14 +120,13 @@
   function handleListEvents(evt) {
     var elm = evt.target;
     switch (true) {
-      case evt.type === 'click' && elm.matches('[data-action="remove"]'):
-        // outras maneiras:
-        // elm.dataset.action === 'remove'
-        // elm.getAttribute('data-action') === 'remove'
-        removeItem(elm);
+      case evt.type === 'click':
+        if (elm.matches('[data-action="remove"]')) removeItem(elm);
+        break;
+      case evt.type === 'input':
+        updateItem(elm);
         break;
       default:
-        updateItem(elm);
         break;
     }
   }
