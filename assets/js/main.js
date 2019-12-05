@@ -47,7 +47,7 @@
   var list = loadData('shoppingList') || [], // tenta carregar os dados do localStorage, caso contário inicializa a lista como um array vazio
       ul = qs('#shopping-list'), // selecciona a UL que vai conter os items
       form = qs('#shopping-list-form'), // selecciona o formulário de novo item
-      units = ['', 'kg', 'l', 'm'],
+      units = ['', 'kg', 'l', 'm'], // valores para lista de unidades
       emptyMessage = qs('#empty-message'), // selecciona o elemento que contém a mensagem de lista vazia
       moodText = qs('.mood-text'), // selecciona o elemento que contém a palavra da emoção
       moodEmoji = qs('.mood-emoji'); // selecciona o elemento que contém o emoji da emoção
