@@ -121,6 +121,9 @@
     var elm = evt.target;
     switch (true) {
       case evt.type === 'click' && elm.matches('[data-action="remove"]'):
+        // outras maneiras:
+        // elm.dataset.action === 'remove'
+        // elm.getAttribute('data-action') === 'remove'
         removeItem(elm);
         break;
       default:
