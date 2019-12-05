@@ -75,7 +75,9 @@
   /* verifica se a lista está vazia e altera a emoção consoante o número de items na lista */
   function updateListStatus() {
     var length = list.length;
+
     emptyMessage.classList.toggle('d-none', length);
+
     switch (true) {
       case !length:
         moodText.innerHTML = 'Sad';
@@ -128,7 +130,6 @@
     - guarda os dados da lista para localStorage
   */
   function updateItem(elm) {
-    console.log(elm);
     var li = elm.parentNode,
         index = findIndex(li, ul);
 
@@ -148,6 +149,7 @@
   */
   function handleFormSubmit(evt) {
     evt.preventDefault();
+
     var formElements = toArray(evt.target.elements),
         item = {
           done: false,
@@ -159,9 +161,8 @@
       }
     });
 
-    console.log(item);
-
     addItem(item);
+
     form.reset();
   }
 
@@ -172,6 +173,7 @@
   */
   function handleListEvents(evt) {
     var elm = evt.target;
+
     switch (true) {
       case evt.type === 'click':
         if (elm.matches('[data-action="remove"]')) removeItem(elm);
