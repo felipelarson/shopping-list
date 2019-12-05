@@ -58,7 +58,7 @@
   function renderItem(item) {
     return [
       '<li class="list-group-item d-flex align-items-center gutters">',
-        '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked' : '') + '>',
+        '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked="checked"' : '') + '>',
         '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '">',
         '<input type="text" name="quantity" class="form-control w-25" placeholder="Quantity" value="' + item.quantity + '">',
         '<button type="button" class="btn btn-outline-danger" data-action="remove"><svg><use xlink:href="#icon-remove"></use></svg></button>',
