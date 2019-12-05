@@ -210,6 +210,12 @@
   ul.innerHTML = list.map(function(item) {
     return renderItem(item);
   }).join('');
+  /*
+    outra maneira:
+    list.forEach(function(item) {
+      ul.innerHTML += renderItem(item);
+    });
+  */
 
 
   /* EXPORT (opcional) */
