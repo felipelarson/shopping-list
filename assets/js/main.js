@@ -136,7 +136,7 @@
     - evita a acção por omissão do formulário
     - inicializa um objecto de novo item
     - popula o objecto com os valores dos campos do formulário
-    - adds o item à lista
+    - adiciona o item à lista
     - limpa os campos do formulário
   */
   function handleFormSubmit(evt) {
