@@ -27,10 +27,6 @@
   max-width: 40rem;
 }
 
-.shopping-list form.gutters > * {
-  margin-bottom: 1rem;
-}
-
 .shopping-list ul input[type="text"]:not(:focus),
 .shopping-list ul input[type="number"]:not(:focus),
 .shopping-list ul select:not(:focus) {
@@ -40,6 +36,10 @@
 input[name="quantity"] {
   text-align: right;
   min-width: 3.5rem !important;
+}
+
+.shopping-list form.gutters > * {
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 768px) {

@@ -58,19 +58,15 @@
   /* renderiza o HTML para um item da lista */
   function renderItem(item) {
     return [
-      '<li class="list-group-item d-flex align-items-center gutters">',
+      '<li class="list-group-item d-flex align-items-center">',
         '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked="checked"' : '') + '>',
-        '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '">',
-        '<div class="input-group flex-nowrap">',
-          '<input type="number" name="quantity" class="form-control" placeholder="Quantity" value="' + item.quantity + '">',
-          '<div class="input-group-append">',
-            '<select class="custom-select" name="unit">',
-              units.map(function(unit) {
-                return '<option value="' + unit + '"' + (unit === item.unit ? 'selected' : '') + '>' + (unit || 'units') + '</option>';
-              }).join(''),
-            '</select>',
-          '</div>',
-        '</div>',
+        '<input type="text" name="name" class="form-control w-auto" placeholder="Name" value="' + item.name + '">',
+        '<input type="number" name="quantity" class="form-control" placeholder="Quantity" value="' + item.quantity + '">',
+        '<select class="custom-select w-auto" name="unit">',
+          units.map(function(unit) {
+            return '<option value="' + unit + '"' + (unit === item.unit ? 'selected' : '') + '>' + (unit || 'units') + '</option>';
+          }).join(''),
+        '</select>',
         '<button type="button" class="btn btn-outline-danger" data-action="remove"><svg><use xlink:href="#icon-remove"></use></svg></button>',
       '</li>'
     ].join('');
@@ -132,6 +128,7 @@
     - guarda os dados da lista para localStorage
   */
   function updateItem(elm) {
+    console.log(elm);
     var li = elm.parentNode,
         index = findIndex(li, ul);
 
@@ -161,6 +158,8 @@
         item[elm.name] = getValue(elm);
       }
     });
+
+    console.log(item);
 
     addItem(item);
     form.reset();
