@@ -61,7 +61,7 @@
       '<li class="list-group-item d-flex align-items-center gutters">',
         '<input type="checkbox" name="done" aria-label="done"' + (item.done ? ' checked="checked"' : '') + '>',
         '<input type="text" name="name" class="form-control" placeholder="Name" value="' + item.name + '">',
-        '<div class="input-group w-50">',
+        '<div class="input-group flex-nowrap">',
           '<input type="number" name="quantity" class="form-control" placeholder="Quantity" value="' + item.quantity + '">',
           '<div class="input-group-append">',
             '<select class="custom-select" name="unit">',
