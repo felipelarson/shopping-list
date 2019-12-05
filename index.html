@@ -30,9 +30,11 @@
         ...and we're going to Make this List Great Again!
       </div>
       <ul id="shopping-list" class="list-group mb-3"></ul>
-      <form id="shopping-list-form" class="d-flex flex-column flex-md-row align-items-center gutters">
-        <input name="name" type="text" class="form-control" placeholder="Name" required>
-        <div class="input-group w-50">
+      <form id="shopping-list-form" class="row align-items-center">
+        <div class="col-12 col-md-6 mb-3">
+          <input name="name" type="text" class="form-control" placeholder="Name" required>
+        </div>
+        <div class="input-group col-12 col-md-6 mb-3">
           <input name="quantity" type="number" class="form-control" placeholder="Qty" required>
           <div class="input-group-append">
             <select class="custom-select" name="unit">
@@ -43,7 +45,7 @@
             </select>
           </div>
         </div>
-        <button name="submit" id="button-add" type="submit" class="btn btn-success text-nowrap">
+        <button name="submit" id="button-add" type="submit" class="btn btn-success text-nowrap mb-3">
           <svg aria-hidden="true"><use xlink:href="#icon-add"></use></svg>
           <span>Add Item</span>
         </button>
