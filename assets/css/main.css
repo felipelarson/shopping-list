@@ -39,6 +39,7 @@
 
 input[name="quantity"] {
   text-align: right;
+  min-width: 3.5rem !important;
 }
 
 @media (min-width: 768px) {
