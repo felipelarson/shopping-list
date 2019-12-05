@@ -19,12 +19,12 @@
   border-bottom-left-radius: 0;
 }
 
-.gutters > *:not(:last-child) {
-  margin-right: 1rem;
-}
-
 .shopping-list {
   max-width: 40rem;
+}
+
+.shopping-list form.gutters > * {
+  margin-bottom: 1rem;
 }
 
 .shopping-list ul input[type="text"]:not(:focus),
@@ -35,4 +35,13 @@
 
 input[name="quantity"] {
   text-align: right;
+}
+
+@media (min-width: 768px) {
+  .gutters > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+  .shopping-list form .input-group {
+    max-width: 25%;
+  }
 }
