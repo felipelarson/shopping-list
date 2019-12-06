@@ -272,7 +272,7 @@
   ul.addEventListener('click', handleListEvents);
 
   /*
-    adiciona o handler de acções à lista para eventos do tipo click, keyup e change
+    adiciona o handler de acções à lista para eventos do tipo keyup e change
     https://developer.mozilla.org/en-US/docs/Web/API/Element/keyup_event
     https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
   */
