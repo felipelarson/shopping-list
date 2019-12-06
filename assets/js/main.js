@@ -225,7 +225,6 @@
     https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute
   */
   function handleListEvents(evt) {
-    console.log(evt)
     var elm = evt.target;
 
     switch (true) {
