@@ -227,8 +227,8 @@
   function handleListEvents(evt) {
     var elm = evt.target;
 
-    switch (true) {
-      case evt.type === 'click':
+    switch (evt.type) {
+      case 'click':
         if (elm.dataset.action === 'remove') removeItem(elm);
         /* 
           outras maneiras de fazer isto:
@@ -236,8 +236,15 @@
           if (elm.getAttribute('data-action') === 'remove') removeItem(elm);
         */
         break;
-      case evt.type === 'input':
-      case evt.type === 'change':
+      case 'keyup':
+      case 'change':
+      /*
+        case 'input':
+
+        o evento 'input' sintetiza os 2 acima para elementos de formulário,
+        mas o suporte em Edge e IE 11 é apenas parcial.
+        https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
+      */
         updateItem(elm);
         break;
       default:
@@ -259,14 +266,25 @@
   form.addEventListener('submit', handleFormSubmit);
 
   /*
-    adiciona o handler de acções à lista para eventos do tipo click e input
+    adiciona o handler de acções à lista para eventos do tipo click, keyup e change
     https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
-    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
-    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
   */
   ul.addEventListener('click', handleListEvents);
-  ul.addEventListener('input', handleListEvents);
+
+  /*
+    adiciona o handler de acções à lista para eventos do tipo click, keyup e change
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/keyup_event
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+  */
+  ul.addEventListener('keyup', handleListEvents);
   ul.addEventListener('change', handleListEvents);
+  /*
+    ul.addEventListener('input', handleListEvents);
+    
+    o evento 'input' sintetiza os 2 acima para elementos de formulário,
+    mas o suporte em Edge e IE 11 é apenas parcial.
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
+  */
 
 
   /* INIT */
