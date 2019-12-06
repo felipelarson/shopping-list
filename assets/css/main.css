@@ -36,14 +36,13 @@
 input[name="quantity"] {
   text-align: right;
   min-width: 3.5rem !important;
-  max-width: 6rem;
 }
 
 .shopping-list form.gutters > * {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .gutters > *:not(:last-child) {
     margin-right: 1rem;
   }
