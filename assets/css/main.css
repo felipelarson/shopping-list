@@ -4,12 +4,19 @@
   justify-content: center;
 }
 
+/*
+  https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+*/
 .btn svg {
   width: 1rem;
   height: 1rem;
   pointer-events: none;
 }
 
+/*
+  https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+  https://developer.mozilla.org/en-US/docs/Web/CSS/:only-child
+*/
 .btn svg:not(:only-child) {
   margin-right: 0.5rem;
 }
@@ -37,6 +44,9 @@ input:focus, select:focus {
   border: 0;
 }
 
+/*
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Attribute_selectors
+*/
 input[name="quantity"] {
   text-align: right;
   min-width: 3.5rem !important;
@@ -47,6 +57,10 @@ input[name="quantity"] {
 }
 
 @media (min-width: 576px) {
+  /*
+    https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+    https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child
+  */
   .gutters > *:not(:last-child) {
     margin-right: 1rem;
   }
