@@ -176,10 +176,10 @@
 
     switch (true) {
       case evt.type === 'click':
-        if (elm.matches('[data-action="remove"]')) removeItem(elm);
+        if (elm.dataset.action === 'remove') removeItem(elm);
         /* 
           outras maneiras de fazer isto:
-          if (elm.dataset.action === 'remove') removeItem(elm);
+          if (elm.matches('[data-action="remove"]')) removeItem(elm);
           if (elm.getAttribute('data-action') === 'remove') removeItem(elm);
         */
         break;
