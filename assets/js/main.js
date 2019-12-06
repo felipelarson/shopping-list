@@ -2,29 +2,48 @@
 
   /* UTILS */
 
-  /* atalho para o querySelector */
+  /*
+    atalho para o querySelector
+    https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+    https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+  */
   function qs(sel, ctx) {
     ctx = ctx || document;
     return ctx.querySelector(sel);
   }
 
-  /* converte um array-like object para um array verdadeiro */
+  /*
+    converte um array-like object para um array verdadeiro
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#Array-like_objects
+  */
   function toArray(obj) {
     return [].slice.call(obj);
   }
 
-  /* encontra o índice de um elemento relativamente ao seu antecessor */
+  /*
+    encontra o índice de um elemento relativamente ao seu antecessor
+    https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+  */
   function findIndex(elm, parent) {
     var elms = toArray(parent.children);
     return elms.indexOf(elm);
   }
 
-  /* obtém o valor de um input */
+  /*
+    obtém o valor de um input
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement
+  */
   function getValue(elm) {
     return elm.type === 'checkbox' ? elm.checked : elm.value;
   }
 
-  /* tenta carregar os dados do localStorage */
+  /*
+    tenta carregar os dados do localStorage
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+  */
   function loadData(key) {
     try {
       return JSON.parse(localStorage.getItem(key));
@@ -33,7 +52,12 @@
     }
   }
 
-  /* tenta guardar os dados para o localStorage */
+  /*
+    tenta guardar os dados para o localStorage
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
+  */
   function saveData(key, data) {
     try {
       localStorage.setItem(key, JSON.stringify(data));
@@ -55,7 +79,13 @@
 
   /* METHODS */
 
-  /* renderiza o HTML para um item da lista */
+  /*
+    renderiza o HTML para um item da lista
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+  */
   function renderItem(item) {
     return [
       '<li class="list-group-item d-flex align-items-center">',
@@ -72,7 +102,13 @@
     ].join('');
   }
 
-  /* verifica se a lista está vazia e altera a emoção consoante o número de items na lista */
+  /*
+    verifica se a lista está vazia e altera a emoção consoante o número de items na lista
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+  */
   function updateListStatus() {
     var length = list.length;
 
@@ -99,6 +135,7 @@
     - adiciona o item ao DOM
     - actualiza a mensagem e emoção da lista
     - guarda os dados da lista para localStorage
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
   */
   function addItem(item) {
     list.push(item);
@@ -113,6 +150,9 @@
     - remove-o do DOM
     - actualiza a mensagem e emoção da lista
     - guarda os dados da lista para localStorage
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+    https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+    https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
   */
   function removeItem(elm) {
     var li = elm.parentNode,
@@ -128,6 +168,8 @@
     - encontra o índice do item que queremos actualizar
     - actualiza a propriedade do item consoante o input que estamos a alterar
     - guarda os dados da lista para localStorage
+    https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
   */
   function updateItem(elm) {
     var li = elm.parentNode,
@@ -146,6 +188,12 @@
     - popula o objecto com os valores dos campos do formulário
     - adiciona o item à lista
     - limpa os campos do formulário
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit
+    https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/elements
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
   */
   function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -170,8 +218,14 @@
     - lida com as acções da lista
     - verifica o tipo de evento que foi despoletado
     - verifica o tipo de elemento que foi clicado e invoca o método correspondente
+    https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute
   */
   function handleListEvents(evt) {
+    console.log(evt)
     var elm = evt.target;
 
     switch (true) {
@@ -184,6 +238,7 @@
         */
         break;
       case evt.type === 'input':
+      case evt.type === 'change':
         updateItem(elm);
         break;
       default:
@@ -192,14 +247,27 @@
   }
 
 
-  /* EVENT LISTENERS */
+  /*
+    EVENT LISTENERS
+    https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    https://developer.mozilla.org/en-US/docs/Web/Events
+  */
 
-  /* adiciona o handler de submit ao formulário de novo item */
+  /*
+    adiciona o handler de submit ao formulário de novo item
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit
+  */
   form.addEventListener('submit', handleFormSubmit);
 
-  /* adiciona o handler de acções à lista para eventos do tipo click e input */
+  /*
+    adiciona o handler de acções à lista para eventos do tipo click e input
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event
+    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+  */
   ul.addEventListener('click', handleListEvents);
   ul.addEventListener('input', handleListEvents);
+  ul.addEventListener('change', handleListEvents);
 
 
   /* INIT */
@@ -207,7 +275,12 @@
   /* inicializa o estado da mensagem e emoção da lista */
   updateListStatus();
 
-  /* renderiza o HTML da lista caso existam dados guardados */
+  /*
+    renderiza o HTML da lista caso existam dados guardados
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+  */
   ul.innerHTML = list.map(function(item) {
     return renderItem(item);
   }).join('');
