@@ -44,13 +44,13 @@
 
 
   /* VARS */
-  var list = loadData('shoppingList') || [], // tenta carregar os dados do localStorage, caso contário inicializa a lista como um array vazio
+  var list = loadData('shoppingList') || [], // inicializa a lista com dados do localStorage ou um array vazio
       ul = qs('#shopping-list'), // selecciona a UL que vai conter os items
       form = qs('#shopping-list-form'), // selecciona o formulário de novo item
       units = ['', 'kg', 'g', 'l', 'cl', 'm', 'cm'], // valores para lista de unidades
-      emptyMessage = qs('#empty-message'), // selecciona o elemento que contém a mensagem de lista vazia
       moodText = qs('.mood-text'), // selecciona o elemento que contém a palavra da emoção
-      moodEmoji = qs('.mood-emoji'); // selecciona o elemento que contém o emoji da emoção
+      moodEmoji = qs('.mood-emoji'), // selecciona o elemento que contém o emoji da emoção
+      emptyMessage = qs('#empty-message'); // selecciona o elemento que contém a mensagem de lista vazia
 
 
   /* METHODS */
