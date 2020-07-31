@@ -116,15 +116,15 @@
 
     switch (true) {
       case !length:
-        moodText.innerHTML = 'Sad';
+        moodText.innerHTML = 'Triste';
         moodEmoji.innerHTML = '😢';
         break;
       case length >= 5:
-        moodText.innerHTML = 'Awesome';
+        moodText.innerHTML = 'Impressionante';
         moodEmoji.innerHTML = '😎';
         break;
       default:
-        moodText.innerHTML = 'Happy';
+        moodText.innerHTML = 'Feliz';
         moodEmoji.innerHTML = '😀';
         break;
     }
